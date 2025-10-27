@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <ctype.h>
-#include "tokenizer.h"
+#include "../include/tokenizer.h"
 
 Token *tokenize(const char *input) {
     Token *tokens = malloc(256 * sizeof(Token));

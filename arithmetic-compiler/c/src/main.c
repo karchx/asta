@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tokenizer.h"
+#include "../include/tokenizer.h"
+#include "../include/parser.h"
 
 int main() {
     char input[256];
@@ -14,8 +15,13 @@ int main() {
     }
 
     Token *tokens = tokenize(input);
-
-    printf("Tokens: %p\n", tokens);
+    int result;
+
+    if (parse(tokens, &result)) {
+        printf("Result: %d\n", result);
+    } else {
+        printf("Error parsing expression.\n");
+    }
     free(tokens);
 
     return 0;
