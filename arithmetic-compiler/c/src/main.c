@@ -3,6 +3,7 @@
 #include <string.h>
 #include "../include/tokenizer.h"
 #include "../include/parser.h"
+#include "../include/assembly.h"
 
 int main() {
     char input[256];
@@ -19,6 +20,7 @@ int main() {
 
     if (parse(tokens, &result)) {
         printf("Result: %d\n", result);
+        generate_assembly(tokens);
     } else {
         printf("Error parsing expression.\n");
     }
